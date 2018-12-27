@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DistDataAquisition.Model
+namespace DistDataAcquisition.Model
 {
     public class DistributorReport
     {

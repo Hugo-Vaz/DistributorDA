@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DistDataAquisition.Model;
-using DistDataAquisition.Model.Filters;
+using DistDataAcquisition.Model;
+using DistDataAcquisition.Model.Filters;
 
-namespace DistDataAquisition.DAO
+namespace DistDataAcquisition.DAO
 {
     public class DistributorDAO : AbstractDAO<Model.Distibutor>
     {

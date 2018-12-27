@@ -1,4 +1,4 @@
-﻿using DistDataAquisition.Model.Filters;
+﻿using DistDataAcquisition.Model.Filters;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace DistDataAquisition.DAO
+namespace DistDataAcquisition.DAO
 {
     public abstract class AbstractDAO<T> where T : new()
     {

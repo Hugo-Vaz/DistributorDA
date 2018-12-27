@@ -1,6 +1,6 @@
-﻿using DistDataAquisition.DAO;
-using DistDataAquisition.Helpers;
-using DistDataAquisition.Model;
+﻿using DistDataAcquisition.DAO;
+using DistDataAcquisition.Helpers;
+using DistDataAcquisition.Model;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DistDataAquisition.Business
+namespace DistDataAcquisition.Business
 {
     public class DistributorReportBusiness
     {

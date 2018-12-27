@@ -1,6 +1,6 @@
 ﻿using Prion.Tools;
 
-namespace DistDataAquisition
+namespace DistDataAcquisition
 {
     public class Settings
     {

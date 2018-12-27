@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DistDataAquisition.Helpers
+namespace DistDataAcquisition.Helpers
 {
     public static class CasperJSHelper
     {

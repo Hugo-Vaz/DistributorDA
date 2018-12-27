@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace DistDataAquisition.DAO
+namespace DistDataAcquisition.DAO
 {
     public class DatabaseHelper
     {

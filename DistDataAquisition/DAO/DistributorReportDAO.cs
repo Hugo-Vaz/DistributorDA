@@ -1,12 +1,12 @@
-﻿using DistDataAquisition.Model;
-using DistDataAquisition.Model.Filters;
+﻿using DistDataAcquisition.Model;
+using DistDataAcquisition.Model.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DistDataAquisition.DAO
+namespace DistDataAcquisition.DAO
 {
     public class DistributorReportDAO : AbstractDAO<DistributorReport>
     {

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Attributes.cs" />
     <Compile Include="Business\DistributorReportBusiness.cs" />
+    <Compile Include="casperjs\src\casperjs.cs" />
     <Compile Include="DAO\AbstractDAO.cs" />
     <Compile Include="DAO\DatabaseHelper.cs" />
     <Compile Include="DAO\DistributorDAO.cs" />
@@ -82,9 +83,33 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Connectors\" />
+    <Folder Include="temp\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="casperjs\bin\casperjs" />
+    <None Include="casperjs\package.json" />
+    <None Include="casperjs\rpm\build" />
+    <None Include="casperjs\rpm\casperjs.spec" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="casperjs\bin\bootstrap.js" />
+    <Content Include="casperjs\bin\casperjs.exe" />
+    <Content Include="casperjs\bin\casperjs.js" />
+    <Content Include="casperjs\bin\phantomjs.exe" />
+    <Content Include="casperjs\bin\usage.txt" />
+    <Content Include="casperjs\modules\casper.js" />
+    <Content Include="casperjs\modules\cli.js" />
+    <Content Include="casperjs\modules\clientutils.js" />
+    <Content Include="casperjs\modules\colorizer.js" />
+    <Content Include="casperjs\modules\events.js" />
+    <Content Include="casperjs\modules\http.js" />
+    <Content Include="casperjs\modules\mouse.js" />
+    <Content Include="casperjs\modules\pagestack.js" />
+    <Content Include="casperjs\modules\querystring.js" />
+    <Content Include="casperjs\modules\tester.js" />
+    <Content Include="casperjs\modules\utils.js" />
+    <Content Include="casperjs\modules\xunit.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
