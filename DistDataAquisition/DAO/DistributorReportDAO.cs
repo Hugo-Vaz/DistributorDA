@@ -24,7 +24,7 @@ namespace DistDataAquisition.DAO
         public override DistributorReport GetById<K>(K id)
         {
             string query = @"SELECT * FROM DistributorReport WHERE DistributorReportID = @id";
-            return dbHelper.GetList<DistributorReport>(query, dbHelper.BuildParameter("id", id)).FirstOrDefault();
+            return dbHelper.GetCompleteList<DistributorReport>(query, dbHelper.BuildParameter("id", id)).FirstOrDefault();
         }
 
         public List<DistributorReport> ListByTimestamp(DateTime startDate,DateTime endDate)

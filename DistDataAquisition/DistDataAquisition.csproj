@@ -47,7 +47,7 @@
       <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="Prion.Tools">
-      <HintPath>..\..\..\DllsPrion\Prion.Tools.dll</HintPath>
+      <HintPath>..\..\DllsPrion\Prion.Tools.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -68,12 +68,15 @@
     <Compile Include="DAO\DistributorDAO.cs" />
     <Compile Include="DAO\DistributorReportDAO.cs" />
     <Compile Include="DAO\SKUDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Helpers\CasperJSHelper.cs" />
+    <Compile Include="Helpers\EmailSender.cs" />
     <Compile Include="Model\Distibutor.cs" />
     <Compile Include="Model\DistributorReport.cs" />
     <Compile Include="Model\Filters\IFilter.cs" />
     <Compile Include="Model\Filters\IPaginationFilter.cs" />
     <Compile Include="Model\SKU.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
