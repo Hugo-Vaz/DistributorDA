@@ -34,6 +34,14 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\Interop.SHDocVw.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\Microsoft.mshtml.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
     </Reference>
@@ -53,17 +61,23 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WatiN.Core, Version=2.1.0.1196, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
+      <HintPath>..\packages\WatiN.2.1.0\lib\net40\WatiN.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes.cs" />
     <Compile Include="Business\DistributorReportBusiness.cs" />
+    <Compile Include="Business\NetworkBusiness.cs" />
     <Compile Include="casperjs\src\casperjs.cs" />
+    <Compile Include="Connectors\Network1\Crawler.cs" />
     <Compile Include="DAO\AbstractDAO.cs" />
     <Compile Include="DAO\DatabaseHelper.cs" />
     <Compile Include="DAO\DistributorDAO.cs" />
@@ -72,7 +86,8 @@
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Helpers\CasperJSHelper.cs" />
     <Compile Include="Helpers\EmailSender.cs" />
-    <Compile Include="Model\Distibutor.cs" />
+    <Compile Include="Helpers\IEBrowserHelper.cs" />
+    <Compile Include="Model\Distributor.cs" />
     <Compile Include="Model\DistributorReport.cs" />
     <Compile Include="Model\Filters\IFilter.cs" />
     <Compile Include="Model\Filters\IPaginationFilter.cs" />
@@ -82,7 +97,6 @@
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Connectors\" />
     <Folder Include="temp\" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +110,7 @@
     <Content Include="casperjs\bin\bootstrap.js" />
     <Content Include="casperjs\bin\casperjs.exe" />
     <Content Include="casperjs\bin\casperjs.js" />
+    <Content Include="casperjs\bin\networkOneCrawl.js" />
     <Content Include="casperjs\bin\phantomjs.exe" />
     <Content Include="casperjs\bin\usage.txt" />
     <Content Include="casperjs\modules\casper.js" />

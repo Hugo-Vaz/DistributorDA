@@ -1,6 +1,6 @@
 ﻿namespace DistDataAcquisition.Model
 {
-    public class Distibutor
+    public class Distributor
     {
         [Identity]
         public int DistibutorID { get; set; }

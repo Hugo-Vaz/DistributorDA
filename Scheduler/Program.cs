@@ -19,6 +19,11 @@ namespace Scheduler
                     DistDataAcquisition.Business.DistributorReportBusiness reportBusiness = new DistDataAcquisition.Business.DistributorReportBusiness();
                     reportBusiness.GenerateReport();
                     break;
+                case "network":
+                    DistDataAcquisition.Business.NetworkBusiness network = new DistDataAcquisition.Business.NetworkBusiness();
+                    network.GetData();
+
+                    break;
             }
         }
     }

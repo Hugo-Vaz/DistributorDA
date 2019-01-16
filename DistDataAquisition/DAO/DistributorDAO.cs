@@ -6,29 +6,29 @@ using DistDataAcquisition.Model.Filters;
 
 namespace DistDataAcquisition.DAO
 {
-    public class DistributorDAO : AbstractDAO<Model.Distibutor>
+    public class DistributorDAO : AbstractDAO<Model.Distributor>
     {
         public override void Delete<K>(K id)
         {
             throw new System.NotImplementedException();
         }
 
-        public override List<Distibutor> GetAll()
+        public override List<Distributor> GetAll()
         {
             string query = @"SELECT * FROM Distributor";
-            return dbHelper.GetList<Distibutor>(query);
+            return dbHelper.GetList<Distributor>(query);
         }
 
-        public override Distibutor GetById<K>(K id)
+        public override Distributor GetById<K>(K id)
         {
             string query = @"SELECT * FROM Distributor where DistributorID = @id";
-            return dbHelper.GetList<Distibutor>(query, dbHelper.BuildParameter("id", id)).FirstOrDefault();
+            return dbHelper.GetList<Distributor>(query, dbHelper.BuildParameter("id", id)).FirstOrDefault();
         }
 
-        public Distibutor GetByName(string name)
+        public Distributor GetByName(string name)
         {
             string query = @"SELECT * FROM Distributor where Name = @name";
-            return dbHelper.GetList<Distibutor>(query, dbHelper.BuildParameter("name", name)).FirstOrDefault();
+            return dbHelper.GetList<Distributor>(query, dbHelper.BuildParameter("name", name)).FirstOrDefault();
         }
 
         public override IFilter ListByFilter(IPaginationFilter filter)
@@ -36,17 +36,17 @@ namespace DistDataAcquisition.DAO
             throw new System.NotImplementedException();
         }
 
-        public override int Save(Distibutor obj)
+        public override int Save(Distributor obj)
         {
             throw new System.NotImplementedException();
         }
 
-        public override Task<int> SaveAsync(Distibutor obj)
+        public override Task<int> SaveAsync(Distributor obj)
         {
             throw new System.NotImplementedException();
         }
 
-        public override void Update<k>(k id, Distibutor obj)
+        public override void Update<k>(k id, Distributor obj)
         {
             throw new System.NotImplementedException();
         }

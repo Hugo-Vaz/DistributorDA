@@ -18,7 +18,7 @@ namespace DistDataAcquisition.Business
         private readonly DistributorReportDAO _dao;
         private readonly DistributorDAO _distDAO;
         private readonly UserDAO _userDAO;
-        private List<Distibutor> _distibutors;
+        private List<Distributor> _distibutors;
         private string _tempDirectory = ConfigurationManager.AppSettings["TempFile"].ToString();
 
         public DistributorReportBusiness()

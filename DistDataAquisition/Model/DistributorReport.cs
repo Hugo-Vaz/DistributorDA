@@ -18,13 +18,13 @@ namespace DistDataAcquisition.Model
                 _origin = value;
             }
         }
-        public int StockQty { get; set; }
-        public decimal SellingPrice { get; set; }
+        public string StockQty { get; set; }
+        public decimal? SellingPrice { get; set; }
         public DateTime Timestamp { get; set; } 
 
         [AnotherObject]
         public SKU SKU { get; set; }
         [AnotherObject]
-        public Distibutor Distributor { get; set; }
+        public Distributor Distributor { get; set; }
     }
 }
