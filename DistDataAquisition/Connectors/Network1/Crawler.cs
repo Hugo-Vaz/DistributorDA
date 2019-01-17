@@ -17,10 +17,12 @@ namespace DistDataAcquisition.Connectors.Network1
         {
             Exception exception = null;
             SKUDAO skuDao = new SKUDAO();
+            DistributorDAO distributorDAO = new DistributorDAO();
             List<DistributorReport> reports = new List<DistributorReport>();
-            //List<SKU> skus = skuDao.GetAll();
-            Distributor distributor = new Distributor() { ResellerName = "TIMIX", UserName = "WAGNER", Password = "Joana2305" };
-            System.Threading.Thread thread = new Thread(new ParameterizedThreadStart(s => Start(ref reports, ref exception, new List<SKU> { new SKU { PartNumber = "AIRCAP1702I-ZK9BR=" } }, distributor)));
+            List<SKU> skus = skuDao.GetAll();
+            Distributor distributor = distributorDAO.GetByName("Network1");//new Distributor() { ResellerName = "TIMIX", UserName = "WAGNER", Password = "Joana2305" };
+
+            System.Threading.Thread thread = new Thread(new ParameterizedThreadStart(s => Start(ref reports, ref exception, skus, distributor)));
             thread.SetApartmentState(ApartmentState.STA);
 
             thread.Start();
@@ -37,6 +39,7 @@ namespace DistDataAcquisition.Connectors.Network1
         private void Start(ref List<DistributorReport> reports, ref Exception exception, List<SKU> skus, Distributor distributor)
         {
             IE browser = null;
+            DistributorReportDAO reportDAO = new DistributorReportDAO();
             try
             {
                 browser = new IE();
@@ -60,6 +63,10 @@ namespace DistDataAcquisition.Connectors.Network1
                     reports.AddRange(this.GetSearchResult(browser, skus[i]));
                 }
 
+                foreach (var report in reports)
+                {
+                    reportDAO.Save(report);
+                }
             }
             catch(Exception e)
             {
@@ -81,14 +88,16 @@ namespace DistDataAcquisition.Connectors.Network1
                     currentReport = new DistributorReport();
                     string[] data = fonts[itemIndex].Text.Split('\n');
                     currentReport.SKU = sku;
-
+                    currentReport.SellingPrice = GenericHelper.ConvertToDecimal(data.First().Replace(" ", ""), "Selling Price", false);
+                    currentReport.Origin = GenericHelper.CleanString(data[1].Trim().Split(' ')[1]);
                     var qtyElement = fonts[itemIndex].Parent.NextSibling;
-                    while (qtyElement.ClassName.Equals("texto"))
+                    while (qtyElement.ClassName == null || !qtyElement.ClassName.Equals("texto"))
                     {
                         qtyElement = qtyElement.NextSibling;
                     }
 
-                    currentReport.StockQty = qtyElement.Text.Split('\n').FirstOrDefault();
+                    currentReport.StockQty = GenericHelper.CleanString(qtyElement.Text.Split('\n').FirstOrDefault());
+                    reports.Add(currentReport);
                 }
             }
             else

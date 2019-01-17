@@ -86,6 +86,7 @@
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Helpers\CasperJSHelper.cs" />
     <Compile Include="Helpers\EmailSender.cs" />
+    <Compile Include="Helpers\GenericHelper.cs" />
     <Compile Include="Helpers\IEBrowserHelper.cs" />
     <Compile Include="Model\Distributor.cs" />
     <Compile Include="Model\DistributorReport.cs" />
