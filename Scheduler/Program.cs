@@ -24,6 +24,11 @@ namespace Scheduler
                     network.GetData();
 
                     break;
+                case "ingram":
+                    DistDataAcquisition.Business.IngramBusiness ingram = new DistDataAcquisition.Business.IngramBusiness();
+                    ingram.GetData();
+
+                    break;
             }
         }
     }

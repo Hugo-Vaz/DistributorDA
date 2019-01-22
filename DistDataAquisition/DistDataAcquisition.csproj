@@ -75,8 +75,10 @@
   <ItemGroup>
     <Compile Include="Attributes.cs" />
     <Compile Include="Business\DistributorReportBusiness.cs" />
+    <Compile Include="Business\IngramBusiness.cs" />
     <Compile Include="Business\NetworkBusiness.cs" />
     <Compile Include="casperjs\src\casperjs.cs" />
+    <Compile Include="Connectors\Ingram\Crawler.cs" />
     <Compile Include="Connectors\Network1\Crawler.cs" />
     <Compile Include="DAO\AbstractDAO.cs" />
     <Compile Include="DAO\DatabaseHelper.cs" />
@@ -113,6 +115,7 @@
     <Content Include="casperjs\bin\bootstrap.js" />
     <Content Include="casperjs\bin\casperjs.exe" />
     <Content Include="casperjs\bin\casperjs.js" />
+    <Content Include="casperjs\bin\ingramCrawl.js" />
     <Content Include="casperjs\bin\networkOneCrawl.js" />
     <Content Include="casperjs\bin\phantomjs.exe" />
     <Content Include="casperjs\bin\usage.txt" />
