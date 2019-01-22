@@ -1,6 +1,7 @@
 ﻿using DistDataAcquisition.DAO;
 using DistDataAcquisition.Model;
 using DistDataAquisition.Helpers;
+using DistDataAquisition.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,21 +41,22 @@ namespace DistDataAcquisition.Connectors.Network1
         {
             IE browser = null;
             DistributorReportDAO reportDAO = new DistributorReportDAO();
-            try
+
+            browser = new IE();
+            browser.GoTo("http://www.network1.com.br/lojavirtual");
+            browser.WaitForComplete();
+
+            browser.TextField(Find.ByName("revenda")).SetAttributeValue("value", distributor.ResellerName);
+            browser.TextField(Find.ByName("ID")).SetAttributeValue("value",distributor.UserName);
+            browser.TextField(Find.ByName("SENHA")).SetAttributeValue("value", distributor.Password);
+            browser.Form(Find.ByName("frmLogin")).Submit();
+
+            string url = browser.Url;
+            while (!url.Equals("http://nbc.intersmartweb.com.br/nbc/vitrine.asp?Pesq=S")) { url = browser.Url; }
+
+            for(int i=0,len = skus.Count; i < len; i++)
             {
-                browser = new IE();
-                browser.GoTo("http://www.network1.com.br/lojavirtual");
-                browser.WaitForComplete();
-
-                browser.TextField(Find.ByName("revenda")).SetAttributeValue("value", distributor.ResellerName);
-                browser.TextField(Find.ByName("ID")).SetAttributeValue("value",distributor.UserName);
-                browser.TextField(Find.ByName("SENHA")).SetAttributeValue("value", distributor.Password);
-                browser.Form(Find.ByName("frmLogin")).Submit();
-
-                string url = browser.Url;
-                while (!url.Equals("http://nbc.intersmartweb.com.br/nbc/vitrine.asp?Pesq=S")) { url = browser.Url; }
-
-                for(int i=0,len = skus.Count; i < len; i++)
+                try
                 {
                     browser.TextField(Find.ByName("txtBusca")).SetAttributeValue("value", skus[i].PartNumber);
                     browser.Element(Find.ByName("image2")).Click();
@@ -62,16 +64,25 @@ namespace DistDataAcquisition.Connectors.Network1
                     browser.WaitForComplete();
                     reports.AddRange(this.GetSearchResult(browser, skus[i]));
                 }
-
-                foreach (var report in reports)
+                catch (Exception e)
                 {
-                    reportDAO.Save(report);
+                    var log = new Log
+                    {
+                        DistributorID = distributor.DistibutorID,
+                        SKUID = skus[i].SKUID,
+                        Timestamp = DateTime.Now,
+                        Message = String.Format("The following SKU ({0}) was not processed for {1}. Exception: {2}", skus[i].PartNumber, distributor.Name, e.Message)
+                    };
+                    
+                    //save log
                 }
             }
-            catch(Exception e)
-            {
 
+            foreach (var report in reports)
+            {
+                reportDAO.Save(report);
             }
+                     
         }
 
         private List<DistributorReport> GetSearchResult(IE browser, SKU sku)

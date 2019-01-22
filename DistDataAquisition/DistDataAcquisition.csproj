@@ -82,6 +82,7 @@
     <Compile Include="DAO\DatabaseHelper.cs" />
     <Compile Include="DAO\DistributorDAO.cs" />
     <Compile Include="DAO\DistributorReportDAO.cs" />
+    <Compile Include="DAO\LogDAO.cs" />
     <Compile Include="DAO\SKUDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Helpers\CasperJSHelper.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Model\DistributorReport.cs" />
     <Compile Include="Model\Filters\IFilter.cs" />
     <Compile Include="Model\Filters\IPaginationFilter.cs" />
+    <Compile Include="Model\Log.cs" />
     <Compile Include="Model\SKU.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
