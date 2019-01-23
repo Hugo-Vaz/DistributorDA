@@ -10,8 +10,8 @@ namespace DistDataAcquisition.Business
     {
         public void GetData()
         {
-            Connectors.Ingram.Crawler crawler = new Connectors.Ingram.Crawler();
-            crawler.GetReport();
+            Connectors.Ingram.CrawlerCasper crawler = new Connectors.Ingram.CrawlerCasper();
+            crawler.GetReports();
         }
     }
 }

@@ -38,6 +38,14 @@ namespace DistDataAcquisition.DAO
             throw new NotImplementedException();
         }
 
+        public void Save(List<DistributorReport> reports)
+        {
+            foreach(var current in reports)
+            {
+                this.Save(current);
+            }
+        }
+
         public override int Save(DistributorReport obj)
         {
             return dbHelper.Save(obj);

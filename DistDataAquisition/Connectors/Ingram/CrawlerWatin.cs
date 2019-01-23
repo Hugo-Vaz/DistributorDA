@@ -12,7 +12,7 @@ using WatiN.Core;
 
 namespace DistDataAcquisition.Connectors.Ingram
 {
-    public class Crawler
+    public class CrawlerWatin
     {
         public List<DistributorReport> GetReport()
         {
