@@ -46,7 +46,7 @@ namespace DistDataAcquisition.Helpers
             System.Threading.Thread thread = new Thread(new ParameterizedThreadStart(s => ExecuteCommand(comand.ToString(), filePath)));
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
-            if (!thread.Join(TimeSpan.FromSeconds(240)))
+            if (!thread.Join(TimeSpan.FromSeconds(600)))
             {
                 thread.Abort();
 

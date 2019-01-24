@@ -71,7 +71,7 @@ namespace DistDataAcquisition.Connectors.Ingram
                 {
                     var log = new Log
                     {
-                        DistributorID = distributor.DistibutorID,
+                        DistributorID = distributor.DistributorID,
                         SKUID = skus[i].SKUID,
                         Timestamp = DateTime.Now,
                         Message = String.Format("The following SKU ({0}) was not processed for {1}. Exception: {2}", skus[i].PartNumber, distributor.Name, e.Message)

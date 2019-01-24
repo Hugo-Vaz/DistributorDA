@@ -83,7 +83,7 @@ namespace DistDataAcquisition.Business
 
                 foreach (var dist in _distibutors)
                 {
-                    var distReport = rowReports.Where(x => x.DistributorID.Equals(dist.DistibutorID)).FirstOrDefault();
+                    var distReport = rowReports.Where(x => x.DistributorID.Equals(dist.DistributorID)).FirstOrDefault();
                     if (distReport == null)
                     {
                         this.CreateCell(current, " - ", ++colNo);

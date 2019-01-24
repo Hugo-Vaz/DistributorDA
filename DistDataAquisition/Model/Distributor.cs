@@ -3,7 +3,7 @@
     public class Distributor
     {
         [Identity]
-        public int DistibutorID { get; set; }
+        public int DistributorID { get; set; }
         public string Name { get; set; }
 
         //Used for crawling, acces info
